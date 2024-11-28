@@ -7,16 +7,16 @@ def master(request):
 
 
 def house_to_rent(request):
-    return None
+    return render(request,'house_to_rent.html')
 
 
 def rented_houses(request):
-    return None
+    return render(request,'rented_houses.html')
 
 
 def fines(request):
-    return None
+    return render(request,'fines.html')
 
 
 def rent_house(request):
-    return None
+    return render(request,'rent_house.html')
