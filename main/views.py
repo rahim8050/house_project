@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+from main.models import House, House_info, Renting
+
+
 # Create your views here.
 def master(request):
 
@@ -7,16 +10,22 @@ def master(request):
 
 
 def house_to_rent(request):
-    return render(request,'house_to_rent.html')
+    houses = House_info.objects.all()
+
+    return render(request,'house_to_rent.html',{'houses':houses})
 
 
 def rented_houses(request):
-    return render(request,'rented_houses.html')
+    rented_houses = Renting.objects.all()
+    return render(request,'rented_houses.html',{'rented_items':rented_houses})
 
 
 def fines(request):
     return render(request,'fines.html')
 
 
-def rent_house(request):
-    return render(request,'rent_house.html')
+def rent_house(request,id):
+    house =House_info.objects.filter(pk=id)
+    Houses =House.objects.all()
+
+    return render(request,'rent_house.html',{"house":house,"Houses":Houses})

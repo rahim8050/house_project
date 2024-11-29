@@ -1,8 +1,26 @@
 {% extends "Master.html" %}
 
 {% block title %}
-	<title>rent house</title>
+    <title>rent house</title>
 {% endblock %}
 {% block content %}
-	dummy content
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">rent {{ house.name }} by {{ house.door_no }}</h6>
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'rent_house' house_id %}" method="post">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

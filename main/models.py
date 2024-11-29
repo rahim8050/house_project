@@ -29,9 +29,8 @@ class House_info(models.Model):
         ordering = ['door_no']
 
 class Renting(models.Model):
-    house = models.ForeignKey(House, on_delete=models.CASCADE)
-    name = models.CharField(max_length=30)
-    house_no = models.ForeignKey(House, on_delete=models.CASCADE, related_name='borrower')
+    house = models.ForeignKey(House_info, on_delete=models.CASCADE)
+    name = models.ForeignKey(House, on_delete=models.CASCADE, related_name='borrower')
     status = models.CharField(max_length=30)
     expected_rent_date = models.DateField()
     rent_date = models.DateField(null=True)
@@ -52,7 +51,7 @@ class Renting(models.Model):
         db_table = 'renting'
         ordering = ['-created_at']
 
-class payment(models.Model):
+class Payment(models.Model):
     renting = models.ForeignKey(Renting, on_delete=models.CASCADE)
     merchant_request_id = models.CharField(max_length=100)
     checkout_request_id = models.CharField(max_length=120)
@@ -68,6 +67,7 @@ class payment(models.Model):
             verbose_name_plural = 'payments'
             db_table = 'payments'
             ordering = ['-created_at']
+
 
 
 

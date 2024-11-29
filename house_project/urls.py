@@ -24,7 +24,7 @@ path('', views.master, name='dashboard'),
 path('houses', views.house_to_rent, name='house_to_rent'),
 path('rented/houses', views.rented_houses, name='rented_houses'),
 path('fines', views.fines, name='fines'),
-path('rent', views.rent_house, name='rent_house'),
+path('rent/<int:house_id>', views.rent_house, name='rent_house'),
 
     path('admin/', admin.site.urls),
 ]
