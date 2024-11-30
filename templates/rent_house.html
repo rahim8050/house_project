@@ -5,19 +5,24 @@
 {% endblock %}
 {% block content %}
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 justify-content-center">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">rent {{ house.name }} by {{ house.door_no }}</h6>
                 </div>
                 <div class="card-body">
                     <form action="{% url 'rent_house' house_id %}" method="post">
+                        {% csrf_token %}
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label for="input_id" class="form-label">Select House</label>
+                            <select id="input_id" class="form-select" name="h.id" aria-label="Default select example">
+                                {% for h in housed %}
+                                    <option value="{{ h.id }}">  {{ h.house_no }}  {{ h.name }}</option>
+                                {% endfor %}
+                                
+                            </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Rent house</button>
                     </form>
                 </div>
             </div>

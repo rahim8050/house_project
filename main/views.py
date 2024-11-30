@@ -25,7 +25,7 @@ def fines(request):
 
 
 def rent_house(request,id):
-    house =House_info.objects.filter(pk=id)
-    Houses =House.objects.all()
+    house_info = House_info.objects.filter(pk=id)
+    housed =House.objects.all()
 
-    return render(request,'rent_house.html',{"house":house,"Houses":Houses})
+    return render(request,'rent_house.html',{"house":house_info,"housed":housed})
