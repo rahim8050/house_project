@@ -11,7 +11,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">rent {{ house.name }} by {{ house.door_no }}</h6>
                 </div>
                 <div class="card-body">
-                    <form action="{% url 'rent_house' house_id %}" method="post">
+                    <form action="{% url 'rent_house' house_id %}" method="GET">
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="input_id" class="form-label">Select House</label>

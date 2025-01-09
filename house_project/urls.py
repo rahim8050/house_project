@@ -21,7 +21,7 @@ from django.urls import path
 
 from main import views
 app_name = 'house'
-# include('house.urls',namespace = 'house'),
+
 urlpatterns = [
 path('', views.master, name='dashboard'),
 path('houses', views.house_to_rent, name='house_to_rent'),
