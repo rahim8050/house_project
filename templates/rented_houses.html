@@ -46,7 +46,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                       {% for item in rented_houses %}
+                                       {% for item in rented %}
                                        	<tr>
                                             <td>{{ item.house.name }}</td>
                                             <td>{{ item.name.name }}</td>
@@ -54,7 +54,7 @@
                                             <td>{{ item.expected_rent_date }}</td>
                                             <td>{{ item.created_at | date:'d-m-Y' }}</td>
                                             <td>
-                                                <a class="btn-circle btn-group-sm btn-outline-dark" href="{% url 'rent_house' house_id  %}">Rents </a>
+                                                <a class="btn-circle btn-group-sm btn-outline-dark" href="{% url 'rent_house'   %}">Rents </a>
                                             </td>
                                         </tr>
                                        {% endfor %}

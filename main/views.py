@@ -15,9 +15,9 @@ def house_to_rent(request):
     return render(request,'house_to_rent.html',{'houses':houses})
 
 
-def rented_houses(request):
-    rented_houses = Renting.objects.all()
-    return render(request,'rented_houses.html',{'rented_items':rented_houses})
+def rented_houses(request,id=None):
+    rented = Renting.objects.all()
+    return render(request,'rented_houses.html', {'rented_items':rented})
 
 
 def fines(request):

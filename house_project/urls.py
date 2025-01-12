@@ -25,7 +25,7 @@ app_name = 'house'
 urlpatterns = [
 path('', views.master, name='dashboard'),
 path('houses', views.house_to_rent, name='house_to_rent'),
-path('rented/houses<int:id>', views.rented_houses, name='rented_houses'),
+path('rented/houses', views.rented_houses, name='rented_houses'),
 path('fines', views.fines, name='fines'),
 path('rent', views.rent_house, name='rent_house'),
 
